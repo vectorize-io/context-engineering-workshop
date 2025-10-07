@@ -1,0 +1,404 @@
+{
+    "document": {
+      "description": "An SEC 10-Q filing",
+      "type": "object",
+      "properties": {
+        "ticker": {
+          "description": "The stock ticker symbol for the company.",
+          "type": "string"
+        },
+        "cik": {
+          "description": "Central Index Key (CIK) of the registrant.",
+          "type": "string"
+        },
+        "industry": {
+          "description": "Fine-grained industry classification, used for targeted search and analytics.",
+          "type": "string",
+          "enum": [
+            "software",
+            "cloud_services",
+            "it_services",
+            "internet_services",
+            "semiconductors",
+            "hardware",
+            "telecommunications",
+            "wireless_services",
+            "media",
+            "advertising",
+            "automobiles",
+            "auto_parts",
+            "aerospace_defense",
+            "transportation",
+            "logistics",
+            "construction",
+            "chemicals",
+            "pharmaceuticals",
+            "biotechnology",
+            "medical_devices",
+            "healthcare_providers",
+            "banks",
+            "insurance",
+            "asset_management",
+            "fintech",
+            "retail",
+            "e_commerce",
+            "consumer_electronics",
+            "apparel",
+            "food_beverage",
+            "restaurants",
+            "energy_equipment",
+            "oil_gas",
+            "renewable_energy",
+            "utilities",
+            "mining",
+            "metals",
+            "materials",
+            "real_estate_investment",
+            "reit",
+            "real_estate_services",
+            "hotels_leisure",
+            "professional_services",
+            "consulting",
+            "education",
+            "government_contracting",
+            "aerospace",
+            "defense",
+            "agriculture",
+            "household_products",
+            "paper_forest_products"
+          ]
+        },
+        "fiscal_year": {
+          "description": "Fiscal year covered by this filing.",
+          "type": "integer"
+        },
+        "period_end_date": {
+          "format": "date",
+          "description": "End date of the fiscal period (YYYY-MM-DD).",
+          "type": "string"
+        },
+        "source_filename": {
+          "description": "The filename of the original 10-Q document.",
+          "type": "string"
+        },
+        "company_name": {
+          "description": "Legal name of the filing company.",
+          "type": "string"
+        },
+        "segment": {
+          "description": "Main business segment reported in filings (can be product, service, or vertical).",
+          "type": "string",
+          "enum": [
+            "cloud",
+            "wireless",
+            "wireline",
+            "advertising",
+            "devices",
+            "search",
+            "e_commerce",
+            "payments",
+            "software",
+            "semiconductors",
+            "automotive",
+            "pharma",
+            "biotech",
+            "healthcare",
+            "insurance",
+            "banking",
+            "asset_management",
+            "energy",
+            "utilities",
+            "telecommunications",
+            "real_estate",
+            "logistics",
+            "hospitality",
+            "education",
+            "manufacturing",
+            "retail"
+          ]
+        },
+        "exchange": {
+          "description": "Stock exchange where the company is primarily listed.",
+          "type": "string",
+          "enum": [
+            "nasdaq",
+            "nyse",
+            "amex",
+            "tsx",
+            "lse",
+            "hkex",
+            "sse",
+            "euronext",
+            "fwb",
+            "tse",
+            "other"
+          ]
+        },
+        "fiscal_quarter": {
+          "type": "string",
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        },
+        "business_model": {
+          "description": "Company's primary business or revenue model.",
+          "type": "string",
+          "enum": [
+            "subscription",
+            "transactional",
+            "marketplace",
+            "ad_supported",
+            "saas",
+            "paas",
+            "iaas",
+            "on_premises",
+            "manufacturing",
+            "retail",
+            "wholesale",
+            "distribution",
+            "professional_services",
+            "consulting",
+            "financial_services",
+            "insurance",
+            "banking",
+            "asset_management",
+            "real_estate_investment",
+            "reit",
+            "licensing",
+            "franchise",
+            "media_content",
+            "logistics",
+            "energy_production"
+          ]
+        },
+        "region": {
+          "description": "Primary geography of company operations or revenue.",
+          "type": "string",
+          "enum": [
+            "global",
+            "north_america",
+            "united_states",
+            "canada",
+            "latin_america",
+            "europe",
+            "emea",
+            "asia_pacific",
+            "apac",
+            "china",
+            "japan",
+            "india",
+            "australia",
+            "middle_east",
+            "africa"
+          ]
+        },
+        "sector": {
+          "description": "High-level sector of the company for broad industry analysis.",
+          "type": "string",
+          "enum": [
+            "information_technology",
+            "communication_services",
+            "consumer_discretionary",
+            "consumer_staples",
+            "energy",
+            "financials",
+            "health_care",
+            "industrials",
+            "materials",
+            "real_estate",
+            "utilities"
+          ]
+        },
+        "document_type": {
+          "description": "The type of SEC filing. Always set to '10-Q'.",
+          "type": "string",
+          "enum": [
+            "10-Q"
+          ]
+        }
+      },
+      "required": [
+        "ticker",
+        "industry",
+        "fiscal_year",
+        "period_end_date",
+        "company_name",
+        "segment",
+        "exchange",
+        "fiscal_quarter",
+        "business_model",
+        "region",
+        "sector",
+        "document_type"
+      ]
+    },
+    "sections": {
+      "md&a": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'md&a'.",
+            "type": "string",
+            "enum": [
+              "md&a"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "quantitative_and_qualitative_disclosures_about_market_risk": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'quantitative_and_qualitative_disclosures_about_market_risk'.",
+            "type": "string",
+            "enum": [
+              "quantitative_and_qualitative_disclosures_about_market_risk"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "signature": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'signature'.",
+            "type": "string",
+            "enum": [
+              "signature"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "financial_statements": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'financial_statements'.",
+            "type": "string",
+            "enum": [
+              "financial_statements"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "controls_and_procedures": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'controls_and_procedures'.",
+            "type": "string",
+            "enum": [
+              "controls_and_procedures"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "legal_proceedings": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'legal_proceedings'.",
+            "type": "string",
+            "enum": [
+              "legal_proceedings"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "risk_factors": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'risk_factors'.",
+            "type": "string",
+            "enum": [
+              "risk_factors"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "notes_to_financials": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'notes_to_financials'.",
+            "type": "string",
+            "enum": [
+              "notes_to_financials"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "exhibits": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'exhibits'.",
+            "type": "string",
+            "enum": [
+              "exhibits"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "cover_page": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'cover_page'.",
+            "type": "string",
+            "enum": [
+              "cover_page"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      },
+      "unregistered_sales_of_equity_securities_and_use_of_proceeds": {
+        "type": "object",
+        "properties": {
+          "section_type": {
+            "description": "Section type. Always 'unregistered_sales_of_equity_securities_and_use_of_proceeds'.",
+            "type": "string",
+            "enum": [
+              "unregistered_sales_of_equity_securities_and_use_of_proceeds"
+            ]
+          }
+        },
+        "required": [
+          "section_type"
+        ]
+      }
+    }
+  }
